@@ -1,0 +1,45 @@
+resources:
+    customers, /api/v1/customers
+    accounts, /api/v1/accounts
+
+operations:
+    customers:
+        GET: get customer by id,
+                /api/v1/customers/{id}
+                /api/v1/customers/{id}/accounts
+
+         GET: get all customers, or filter, w/ query params
+            # pagination : /api/v1/customers?page_num=1&result_per_page=20
+            # filter: /api/v1/customers?city=Tel_Aviv&name_contains=Aynbinder
+
+        POST: create new customer, form data
+            /api/v1/customers
+            # in body: customer details
+
+        PUT: update customer data
+            /api/v1/customers/{id}
+            # in body: customer details
+
+        DELETE: delete customer
+            /api/v1/customers/{id}
+            # restrictions! dependencies!
+
+    accounts:
+        GET: get account by id, /api/ve/accounts/{id}
+        GET: get all accounts or allow filters, query params
+        POST: create new account
+        PUT: deposit to account
+                /api/v1/accounts/{id}/deposit
+                # body: deposit details
+
+        PUT: withdraw from account
+                # /api/v1/accounts/{id}/withdraw
+                # body: withdrawal details
+
+        PUT: transfer from one account to another in the bank
+                # /api/v1/accounts/{id}/transfer
+                # body: transfer details
+
+        DELETE: delete account
+
+# in header: token/allowed access

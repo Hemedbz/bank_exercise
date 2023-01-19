@@ -3,3 +3,6 @@ class BankException(Exception):
 
 class NotAllowed(BankException):
     pass
+
+class InvalidType(BankException):
+    pass
